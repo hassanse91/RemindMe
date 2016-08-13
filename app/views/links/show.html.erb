@@ -1,11 +1,14 @@
+
 <p id="notice"><%= notice %></p>
 
 <div class="col-md-6 col-md-offset-3">
-<div class="thumbnail">
+<div class="box">
+<h2> <%= @link.title %></h2>
+
 <p>
-   <h1> <%= @link.title %></h1>
+   
 	<p><%= @link.content %></p> 
-  <%= link_to "visite-it", url_with_protocol(@link.url), target:"_blank", class: "btn btn-default" %>
+  <%= link_to "visite-it", url_with_protocol(@link.url), target:"_blank", class: "btn btn-primary" %>
 </p>
   <p>created at : <%= @link.created_at %></p>
            <p>created by: <%= @link.user.email %></p>
@@ -13,4 +16,6 @@
            <%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' } %> |
 			<%= link_to 'Back', root_path %>
 </div>
+
+
 </div>

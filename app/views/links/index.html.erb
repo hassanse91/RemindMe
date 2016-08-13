@@ -1,20 +1,21 @@
 <% if !user_signed_in? %>
-  <%= render 'links/home' %>
+ <%= render 'creatives/header' %>
+<%= render 'creatives/bg_primary' %>
+<%= render 'creatives/services' %>
+<%= render 'creatives/portfolio' %>
+<%= render 'creatives/call_to_action' %>
+<%= render 'creatives/contact' %>
 <% else %>
 <p id="notice"><%= notice %></p>
-<div id="links">
-<div class="col-md-6 col-md-offset-3">
-  <h1>Your Links</h1>
 
+<div class="col-md-6 col-md-offset-3">
+  <h2>Your Links</h2>
       <% @links.each do |link| %>
-          <div class="link">
             <div class="thumbnail">
            <h2><%= link.title %></h2> 
-           <p><%= link.content %></p> 
-         <%= link_to "show", link, class: "btn btn-primary" %>
-            </div>
+          <em><%= link.content %></em> 
+         <%= link_to "show", link, class: "btn btn-primary" %>         
          </div>
       <% end %>
 </div>
- </div>
  <% end %>

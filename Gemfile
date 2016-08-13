@@ -15,6 +15,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
+gem 'frontend-generators'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
