@@ -4,9 +4,9 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    if user_signed_in?
+      if user_signed_in?
       @links = Link.where(user_id: current_user.id) 
-    end
+      end
 
     
   end
