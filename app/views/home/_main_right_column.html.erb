@@ -9,7 +9,7 @@
           				<span class="icon-bar"></span>
           				<span class="icon-bar"></span>
                       </button>
-                      <a href="/" class="navbar-brand logo">semindNow</a>
+                      <a href="/" class="navbar-brand logo">RemindNow</a>
                   	</div>
                   	<nav class="collapse navbar-collapse" role="navigation">
                     <form class="navbar-form navbar-left">
@@ -33,7 +33,7 @@
                <% end %>          
                       </li>
                       <li>
-               <%=   link_to('#') do %>
+               <%=   link_to(new_post_path) do %>
               <i class="glyphicon glyphicon-plus"></i> Post
                <% end %>          
                       </li>
@@ -117,10 +117,14 @@
                                 <div class="well"> 
                                    <form class="form-horizontal" role="form">
                                     <h4>What's New</h4>
-                                     <div class="form-group" style="padding:14px;">
-                                      <textarea class="form-control" placeholder="Create new link"></textarea>
-                                    </div>
-                                    <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+
+            <%= simple_form_for @current_user.posts.build do |f| %>
+            <%= f.input :body %>
+            <%= f.button :submit %>
+            <% end %>
+
+                                   
+                                    <ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
                                   </form>
                               </div>
 
@@ -133,17 +137,18 @@
                                     </div>
                                   </form>
                                 </div>
-                      
+
+                              <% @posts.each do |post| %>
                                <div class="panel panel-default">
-                                 <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply Editor &amp; Code Library</h4></div>
+
+                                 <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><%= post.title %></h4></div>
                                   <div class="panel-body">
-                                    <p><img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">The RemindNow Playground</a></p>
-                                    <div class="clearfix"></div>
-                                    <hr>
-                                    Design, build, test, and prototype using RemindNow in real-time from your Web browser. Bootply combines the power of hand-coded HTML, CSS and JavaScript with the benefits of responsive design using RemindNow. Find and showcase RemindNow-ready snippets in the 100% free Bootply.com code repository.
+                                    <%= post.body %>
                                   </div>
+                                  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %> 
                                </div>
-                            
+                              <% end %>
+
                                <div class="panel panel-default">
                                  <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Stackoverflow</h4></div>
                                   <div class="panel-body">

@@ -9,6 +9,10 @@
                     <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
+                    <h5>there is <%= pluralize( @users.count, 'User') %> </h5>
+                    <% @users.each do |user| %>
+                      <li><%= user.email %> </li> 
+                    <% end %>
                 </ul>
                 <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
