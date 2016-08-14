@@ -8,7 +8,9 @@
 </head>
 <body>
 <div class="container">
-<%= render 'creatives/navbar' %>
+<% if 	!user_signed_in? %>
+	<%= render 'creatives/navbar' %>
+<% end %>
 </div>
 		<% flash.each do |name, msg| %>
 					<%= content_tag(:div, msg, class: "alert alert-info") %>

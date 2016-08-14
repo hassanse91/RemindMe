@@ -16,14 +16,3 @@
  *= require bootstrap
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-.devise_form {
-	margin-top: 50px;
-}
-.thumbnail {
-	width: auto;
-	height: auto;
-	box-shadow: 10px 10px 5px #888888;
-	background-color: #F8F8F8;
-}
